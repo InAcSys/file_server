@@ -10,8 +10,7 @@ Route::get("/", function () {
 
 Route::prefix('files')->group(function () {
     Route::post('/upload', [FileController::class, 'upload']);
-    Route::get('/', [FileController::class, 'list']);
-    Route::get('/download/{filename}', [FileController::class, 'download']);
-    Route::get('/view/{filename}', [FileController::class, 'view']);
-    Route::delete('/{filename}', [FileController::class, 'delete']);
+    Route::get('/download/{id}', [FileController::class, 'download']);
+    Route::get('/{id}', [FileController::class, 'show']);
+    Route::delete('/{id}', [FileController::class, 'delete']);
 });
