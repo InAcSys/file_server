@@ -21,6 +21,7 @@ RUN apk add --no-cache --virtual .build-deps \
         libzip-dev \
         ssmtp \
         icu-dev \
+        netcat-openbsd \
     && apk upgrade --no-cache
 
 # Install PHP extensions (grouped by similar operations)
@@ -78,8 +79,7 @@ COPY . .
 
 # Complete composer installation
 RUN composer dump-autoload --optimize \
-    && composer require spiral/roadrunner --no-interaction \
-    && mkdir -p /app/storage/logs
+    && mkdir -p /app/storage/logs /app/bootstrap/cache
 
 # Copy entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/

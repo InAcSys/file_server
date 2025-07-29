@@ -1,5 +1,4 @@
 services:
-
     file-server:
         image: file-server:latest
         restart: always
@@ -34,7 +33,6 @@ services:
 
 volumes:
     mysql-data:
-
 
 networks:
     file-server-net:

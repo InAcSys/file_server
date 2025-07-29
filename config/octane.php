@@ -221,4 +221,23 @@ return [
 
     'max_execution_time' => 30,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Octane Swoole Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configuration options specific to the Swoole server implementation.
+    | These settings are used when Octane is running with Swoole.
+    |
+    */
+
+    'swoole' => [
+        'options' => [
+            'log_file' => storage_path('logs/swoole_http.log'),
+            'package_max_length' => 10 * 1024 * 1024,
+        ],
+
+        'clear_opcache' => false, // Disabled to prevent early config() calls during worker startup
+    ],
+
 ];
